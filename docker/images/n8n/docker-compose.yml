@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  n8n:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        N8N_VERSION: latest
+    container_name: n8n
+    ports:
+      - '5678:5678'
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_DATABASE=n8ndb
+      - DB_POSTGRESDB_HOST=172.24.227.230
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_USER=postgres
+      - DB_POSTGRESDB_SCHEMA=public
+      - DB_POSTGRESDB_PASSWORD=qwerty
+    volumes:
+      - ~/.n8n:/home/node/.n8n
+    user: '${UIDD}:${GID}' # only import if you aren't able to edit the folder /home/node/.n8n
