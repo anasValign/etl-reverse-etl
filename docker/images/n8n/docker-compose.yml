@@ -18,6 +18,7 @@ services:
       - DB_POSTGRESDB_USER=postgres
       - DB_POSTGRESDB_SCHEMA=public
       - DB_POSTGRESDB_PASSWORD=qwerty
+      - N8N_ENCRYPTION_KEY=lskfjbs@#$)(%)3458924829FAJNE26124#&%@#&$UCWID
     volumes:
       - ~/.n8n:/home/node/.n8n
     user: '${UIDD}:${GID}' # only import if you aren't able to edit the folder /home/node/.n8n
