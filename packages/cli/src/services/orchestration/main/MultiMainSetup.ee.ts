@@ -50,7 +50,7 @@ export class MultiMainSetup extends TypedEmitter<MultiMainEvents> {
 	}
 
 	async shutdown() {
-		clearInterval(this.leaderCheckInterval);
+		clearInterval(this.leaderCheckInterval as any);
 
 		const { isLeader } = this.instanceSettings;
 

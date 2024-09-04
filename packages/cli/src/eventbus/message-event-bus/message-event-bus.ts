@@ -194,7 +194,7 @@ export class MessageEventBus extends EventEmitter {
 		// if configured, run this test every n ms
 		if (this.globalConfig.eventBus.checkUnsentInterval > 0) {
 			if (this.pushIntervalTimer) {
-				clearInterval(this.pushIntervalTimer);
+				clearInterval(this.pushIntervalTimer as any);
 			}
 			this.pushIntervalTimer = setInterval(async () => {
 				await this.trySendingUnsent();

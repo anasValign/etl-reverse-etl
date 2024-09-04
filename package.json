@@ -37,7 +37,7 @@
     "worker": "./packages/cli/bin/n8n worker"
   },
   "devDependencies": {
-    "@n8n_io/eslint-config": "workspace:*",
+    "@n8n_io/eslint-config": "^0.0.2",
     "@types/jest": "^29.5.3",
     "@types/supertest": "^6.0.2",
     "jest": "^29.6.2",
@@ -83,5 +83,8 @@
       "@types/ws@8.5.4": "patches/@types__ws@8.5.4.patch",
       "@types/uuencode@0.0.3": "patches/@types__uuencode@0.0.3.patch"
     }
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0"
   }
 }

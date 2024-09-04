@@ -23,6 +23,9 @@ RUN set -eux; \
 	find /usr/local/lib/node_modules/n8n -type f -name "*.ts" -o -name "*.js.map" -o -name "*.vue" | xargs rm -f && \
 	rm -rf /root/.npm
 
+# RUN git clone https://github.com/anasValign/reverse-etl /usr/local/n8n
+# RUN npm install --omit=dev && npm run build
+
 COPY docker-entrypoint.sh /
 
 RUN \

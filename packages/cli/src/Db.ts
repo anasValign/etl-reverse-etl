@@ -67,7 +67,7 @@ export async function migrate() {
 
 export const close = async () => {
 	if (pingTimer) {
-		clearTimeout(pingTimer);
+		clearTimeout(pingTimer as any);
 		pingTimer = undefined;
 	}
 
