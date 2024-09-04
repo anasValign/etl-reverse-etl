@@ -303,7 +303,7 @@ export class VaultProvider extends SecretsProvider {
 
 	async disconnect(): Promise<void> {
 		if (this.refreshTimeout !== null) {
-			clearTimeout(this.refreshTimeout);
+			clearTimeout(this.refreshTimeout as any);
 		}
 		this.refreshAbort.abort();
 	}

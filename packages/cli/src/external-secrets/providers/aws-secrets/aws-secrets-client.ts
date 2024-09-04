@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosHeaders } from 'axios';
 import * as aws4 from 'aws4';
 import type { AxiosRequestConfig } from 'axios';
 import type { Request as Aws4Options } from 'aws4';
@@ -100,7 +100,7 @@ export class AwsSecretsClient {
 		);
 
 		const options = this.toRequestOptions('BatchGetSecretValue', body);
-		const { headers } = aws4.sign(options, this.settings);
+		const { headers }: any = aws4.sign(options, this.settings);
 
 		const config: AxiosRequestConfig = {
 			method: 'POST',
@@ -135,7 +135,7 @@ export class AwsSecretsClient {
 		const body = JSON.stringify(nextToken ? { NextToken: nextToken } : {});
 
 		const options = this.toRequestOptions('ListSecrets', body);
-		const { headers } = aws4.sign(options, this.settings);
+		const { headers }: any = aws4.sign(options, this.settings);
 
 		const config: AxiosRequestConfig = {
 			method: 'POST',

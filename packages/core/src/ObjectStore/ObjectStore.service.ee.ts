@@ -5,7 +5,7 @@ import { sign } from 'aws4';
 import { isStream, parseXml, writeBlockedMessage } from './utils';
 import { ApplicationError, LoggerProxy as Logger } from 'n8n-workflow';
 
-import type { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig, Method } from 'axios';
+import type { AxiosHeaders, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig, Method } from 'axios';
 import type { Request as Aws4Options, Credentials as Aws4Credentials } from 'aws4';
 import type {
 	Bucket,
@@ -263,7 +263,7 @@ export class ObjectStoreService {
 		const config: AxiosRequestConfig = {
 			method,
 			url: `https://${host}${path}`,
-			headers: signedOptions.headers,
+			headers: signedOptions.headers as AxiosHeaders,
 		};
 
 		if (body) config.data = body;

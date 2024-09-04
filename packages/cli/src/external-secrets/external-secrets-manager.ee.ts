@@ -60,12 +60,12 @@ export class ExternalSecretsManager {
 	}
 
 	shutdown() {
-		clearInterval(this.updateInterval);
+		clearInterval(this.updateInterval as any);
 		Object.values(this.providers).forEach((p) => {
 			// Disregard any errors as we're shutting down anyway
 			void p.disconnect().catch(() => {});
 		});
-		Object.values(this.initRetryTimeouts).forEach((v) => clearTimeout(v));
+		Object.values(this.initRetryTimeouts).forEach((v) => clearTimeout(v as any));
 	}
 
 	async reloadAllProviders(backoff?: number) {
@@ -164,7 +164,7 @@ export class ExternalSecretsManager {
 
 	private retryInitWithBackoff(name: string, currentBackoff: number) {
 		if (name in this.initRetryTimeouts) {
-			clearTimeout(this.initRetryTimeouts[name]);
+			clearTimeout(this.initRetryTimeouts[name] as any);
 			delete this.initRetryTimeouts[name];
 		}
 		this.initRetryTimeouts[name] = setTimeout(() => {
