@@ -5,6 +5,7 @@
 		"dbaeumer.vscode-eslint",
 		"EditorConfig.EditorConfig",
 		"esbenp.prettier-vscode",
-		"Vue.volar"
+		"Vue.volar",
+		"ms-vscode-remote.remote-containers"
 	]
 }
